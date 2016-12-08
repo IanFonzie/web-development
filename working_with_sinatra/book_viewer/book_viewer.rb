@@ -1,7 +1,6 @@
 require "sinatra"
-require "sinatra/reloader"
+require "sinatra/reloader" if development?
 require "tilt/erubis"
-require "pry"
 # Tilt is a thin interface over a bunch of 
 # different Ruby template engines in an attempt to make their usage as generic as possible
 
