@@ -1,0 +1,28 @@
+<h2 class="content-subhead">Search</h2>
+
+<form action="/search" method="get">
+  <input name="query" value="<%= params[:query] %>">
+  <button type="submit">Search</button>
+</form>
+<% if @query %>
+	<% unless @results.empty? %>
+	<ul>
+	    <% @results.each do |result| %> <!-- Gives us a hash that has the name, number and result hash -->
+	      <li>
+	        <h4><%= result[:name] %></h4>
+	        <ul>
+	          <% result[:paragraphs].each do |index, text| %> <!-- uses hash#each which gives access to the key and value -->
+	            <li>
+	              <a href="/chapters/<%= result[:number] %>#paragraph<%= index %>"> <!-- provides the number to identify the chapter from the result and then identifies the specific paragraph using the result[paragraph] hash provided by hash#each -->
+	                <%= highlight(text, @query) %>
+	              </a>
+	            </li>
+	          <% end %>
+	        </ul>
+	      </li>
+	    <% end %>
+  	</ul>
+	<% else %>
+		<p>Sorry, no matches found.</p>
+	<% end %>
+<% end %>

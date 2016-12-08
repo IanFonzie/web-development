@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title><%= @title %></title>
+	</head>
+	<body>
+		<ul>
+		<% @files.each do |file| %>
+			<li>
+				<!-- <a href="<%= file %>"><%= file.split("/").last %></a> -->
+				<a href="<%= file %>"><%= file %></a>
+			</li>
+		<% end %>
+		</ul>
+
+		<a href="/">Sort Ascending</a>
+		<a href="/?sort=desc">Sort Descending</a>
+	</body>
+</htm>

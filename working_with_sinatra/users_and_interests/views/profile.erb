@@ -1,0 +1,14 @@
+<h2>Details for <%= @user.capitalize %>:</h2>
+
+<h4>Email Address:</h4>
+<p><%= @email %></p>
+
+<h4>Interests:</h4>
+<p><%= @interests %> </p>
+
+<h4>Other users</h4>
+<% @user_list.each do |user| %>
+	<ul>
+		<li><a href="<%= user %>"><%= user %></a></li>
+	</ul>
+<% end %>
