@@ -1,0 +1,17 @@
+<h1>Training Max</h1>
+
+<p>Please enter your current training max:</p>
+
+<form action="/lifts/known" method="post">
+	<% lifts_list.each do |lift| %>
+		<div>
+			<h2><%= lift_name(lift) %></h2>
+			<label for="<%= lift %>_training_max">Training Max:
+			<input type="text" name="<%= lift %>_training_max" value="<%= params["#{lift}_training_max"] %>">
+		</label>
+		</div>
+	<% end %>
+	
+	<button type="submit">Submit Training Max</button>
+	<a href="/">Cancel</a>
+</form>

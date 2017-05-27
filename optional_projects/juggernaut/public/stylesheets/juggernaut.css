@@ -1,0 +1,17 @@
+body {
+	padding: 1em;
+	font-family: sans-serif;
+}
+
+table {
+	padding-bottom: 10px;
+}
+
+.message { 
+	padding: 10px;
+	background-color: #ffff99;
+}
+
+td[rowspan] {
+	vertical-align: top;
+}

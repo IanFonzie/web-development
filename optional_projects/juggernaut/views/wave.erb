@@ -1,0 +1,19 @@
+<h1><%= params[:wave] %>s Wave</h1>
+
+<table>
+	<th></th>
+	<% session[:lifts].each do |lift, info| %>
+		<th><%= lift_name(lift.to_s) %></th>
+	<% end %>
+
+	<% @lifts.size.times do |set_info| %>
+		<tr>
+		<%= cell_name_selector(set_info, @lifts) %>
+		<% session[:lifts].size.times do |index| %>
+			<td><%= format_table_output(@lifts, set_info, index) %></td>
+		<% end %>
+		</tr>
+	<% end %>
+</table>
+
+<a href="/">Return to Maxes</a>

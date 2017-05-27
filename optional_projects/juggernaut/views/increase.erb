@@ -1,0 +1,28 @@
+<h1>New Training Max</h1>
+
+<form action="/lifts/increase" method="post">
+	<% lifts_list.each do |lift| %>
+		<div>
+			<h2><%= lift_name(lift) %></h2>
+			<label for="<%= lift %>_weight">Weight:
+				<input type="text" name="<%= lift %>_weight" value="<%= params["#{lift}_weight"] %>">
+			</label>
+			<label for="<%= lift %>_reps">Reps:
+				<input type="text" name="<%= lift %>_reps" value="<%= params["#{lift}_reps"] %>">
+			</label>
+		</div>
+	<% end %>
+
+	<div>
+		<h2>Wave</h2>
+		<label for="wave">Current Wave:
+			<input type="radio" name="wave" value="10" checked> 10
+			<input type="radio" name="wave" value="8"> 8
+			<input type="radio" name="wave" value="5"> 5
+			<input type="radio" name="wave" value="3"> 3
+		</label>
+	</div>
+
+	<button type="submit">Calculate New Training Max</button>
+	<a href="/">Cancel</a>
+</form>

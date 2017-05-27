@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+  	<link rel="stylesheet" href="/stylesheets/juggernaut.css" type="text/css">
+  	<title>Juggernaut</title>
+  </head>
+  <body>
+  	<% if session[:message] %>
+  		<% session[:message].each do |message| %>	
+  			<p class="message"><%= message %></p>
+  		<% end %>
+  		<% session.delete(:message) %>
+  	<% end %>
+
+  	<%= yield %>
+  </body>
+</html>

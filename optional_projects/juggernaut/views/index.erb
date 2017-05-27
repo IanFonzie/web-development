@@ -1,0 +1,40 @@
+<% if session[:lifts] %>
+	<h1>Current Maxes</h1>
+
+	<table>
+		<tr>
+			<th>Lift</th>
+			<th>Projected Max</th>
+			<th>Training Max</th>
+		</tr>
+		
+		<% session[:lifts].each do |lift, lift_info| %>
+			<tr>
+				<td><%= lift_name(lift.to_s) %></td>
+				<td><%= format_lift_numbers(lift_info[:projected_max]) || "To Be Determined" %></td>
+				<td><%= format_lift_numbers(lift_info[:training_max]) %></td>
+			</tr>
+		<% end %>
+	</table>
+
+	<form action="/lifts/view" method="get">
+		<label for="wave">Current Wave:
+			<input type="radio" name="wave" value="10" checked> 10
+			<input type="radio" name="wave" value="8"> 8
+			<input type="radio" name="wave" value="5"> 5
+			<input type="radio" name="wave" value="3"> 3
+		</label>
+		<div>
+			<button type="submit">View Weights for Current wave</button>
+		</div>
+	</form>
+
+
+	<p>Finishing a wave? Increase your lifts <a href="/lifts/increase">here.</a></p>
+
+	<form action="/lifts/reset" method="post">
+		<button type="submit">Reset Lifts</button>
+	</form>
+<% else %>
+	<p>Calculate your <a href="/lifts/unknown">projected max</a> or enter your <a href="lifts/known">training maxes</a>, if known.</p>
+<% end %>

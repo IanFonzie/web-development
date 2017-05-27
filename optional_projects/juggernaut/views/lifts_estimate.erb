@@ -1,0 +1,20 @@
+<h1>Projected Max</h1>
+
+<p>If this is your first wave, try using a max in the 1 - 3 rep range.</p>
+
+<form action="/lifts/unknown" method="post">
+	<% lifts_list.each do |lift| %>
+		<div>
+			<h2><%= lift_name(lift) %></h2>
+			<label for="<%= lift %>_weight">Weight:
+				<input type="text" name="<%= lift %>_weight" value="<%= params["#{lift}_weight"] %>">
+			</label>
+			<label for="<%= lift %>_reps">Reps:
+				<input type="text" name="<%= lift %>_reps" value="<%= params["#{lift}_reps"] %>">
+			</label>
+		</div>
+	<% end %>
+	
+	<button type="submit">Calculate Projected Max</button>
+	<a href="/">Cancel</a>
+</form>
