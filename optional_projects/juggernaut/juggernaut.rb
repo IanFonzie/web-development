@@ -13,7 +13,7 @@ def lifts_list
 end
 
 def projected_max(weight, reps)
-  (weight.to_i * reps.to_i * 0.033) + weight.to_i
+  (weight.to_f * reps.to_i * 0.033) + weight.to_f
 end
 
 def append_string(symbol, string)
